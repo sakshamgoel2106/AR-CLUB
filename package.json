@@ -1,0 +1,37 @@
+{
+  "name": "ar-club",
+  "version": "4.1.0",
+  "description": "AR CLUB — Eco-tech single-page site, deploy-ready. Student-run AR studio for the college.",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "npm run build && node backend/server.js",
+    "dev": "npm run build && node backend/server.js",
+    "build": "npm --prefix frontend run build",
+    "frontend:dev": "npm --prefix frontend run dev",
+    "frontend:install": "npm --prefix frontend install"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "ar",
+    "augmented-reality",
+    "club",
+    "college",
+    "eco-tech",
+    "express",
+    "react",
+    "typescript",
+    "tailwindcss"
+  ],
+  "author": "AR CLUB",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^4.19.2",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
+    "mongoose": "^9.9.4",
+    "morgan": "^1.12.0"
+  }
+}

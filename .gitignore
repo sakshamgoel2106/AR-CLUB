@@ -1,0 +1,9 @@
+node_modules/
+npm-debug.log
+.env
+.DS_Store
+*.log
+data/messages.json
+data/subscribers.json
+!data/messages.example.json
+!data/subscribers.example.json

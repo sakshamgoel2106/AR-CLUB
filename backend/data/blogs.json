@@ -1,0 +1,80 @@
+[
+  {
+    "slug": "spatial-computing-2026",
+    "title": "Spatial Computing in 2026: A Field Report",
+    "category": "Essay",
+    "author": "Aarav Kapoor",
+    "author_role": "President",
+    "date": "2026-08-04",
+    "read_time": "12 min",
+    "issue": "№ 14",
+    "excerpt": "From Vision Pro to Ray-Ban Meta, spatial computing has quietly become the most interesting surface in technology. A working student's notes on what's real, what's noise, and what to build next.",
+    "body": "Three years ago, spatial computing was a conference keynote. Today it's a senior project, a startup pitch deck, and an open-source SDK. The shift was faster than the headlines suggested.\n\nWhat we built last semester ran on a $400 phone. What we're building next semester might run on glasses we'll never own. That tension — between what's accessible today and what's inevitable tomorrow — is where AR CLUB lives.",
+    "tags": ["visionos", "meta", "essay"]
+  },
+  {
+    "slug": "arcore-60-min",
+    "title": "Your First ARCore App, Built in Sixty Minutes",
+    "category": "Tutorial",
+    "author": "Rohan Mehta",
+    "author_role": "Technical Lead",
+    "date": "2026-07-22",
+    "read_time": "8 min",
+    "issue": "№ 13",
+    "excerpt": "A complete walkthrough — install, anchor, render, deploy. By the end you'll have a working plane-tracker running on your phone.",
+    "body": "Forget the 200-page docs. ARCore has four primitives: session, frame, camera, and hit-test. Everything else is composition.\n\nWe'll build a simple object-placer. You point at a table, tap, and a 3D shape anchors to the surface. By the time your coffee gets cold, it'll be live on your phone.",
+    "tags": ["arcore", "android", "tutorial"]
+  },
+  {
+    "slug": "unity-vs-unreal-ar",
+    "title": "Unity 6 vs. Unreal 5.7 for AR: An Honest Benchmark",
+    "category": "Research",
+    "author": "Priya Sharma",
+    "author_role": "Vice President",
+    "date": "2026-07-15",
+    "read_time": "15 min",
+    "issue": "№ 12",
+    "excerpt": "We ran the same AR project through both engines. The results were less surprising — and more useful — than the discourse online suggests.",
+    "body": "Unity wins on iteration speed. Unreal wins on rendering fidelity. That's the headline. Everything else is nuance.\n\nWe tested build times, frame rates across three devices, AR plugin maturity, and team onboarding. Full numbers and methodology in the appendix.",
+    "tags": ["unity", "unreal", "research"]
+  },
+  {
+    "slug": "webxr-no-install",
+    "title": "WebXR: AR Without an App Store",
+    "category": "Tutorial",
+    "author": "Neha Krishnan",
+    "author_role": "Creative Director",
+    "date": "2026-06-30",
+    "read_time": "10 min",
+    "issue": "№ 11",
+    "excerpt": "The most underrated distribution channel in 2026 is a URL. Here's how we built cross-platform AR experiences that need no install, no review, no friction.",
+    "body": "Browser AR hit its stride this year. WebXR on Chrome for Android, Model Viewer on iOS, and 8th Wall on Safari. Between them, you cover 90% of users with one HTML file.",
+    "tags": ["webxr", "8thwall", "tutorial"]
+  },
+  {
+    "slug": "slam-explained",
+    "title": "SLAM, Demystified",
+    "category": "Deep Dive",
+    "author": "Ishita Joshi",
+    "author_role": "Content Lead",
+    "date": "2026-06-18",
+    "read_time": "18 min",
+    "issue": "№ 10",
+    "excerpt": "Simultaneous Localization and Mapping is the spine of every AR app you've ever used. Most engineers treat it as magic. Here's the math, minus the mysticism.",
+    "body": "SLAM answers two questions simultaneously: where am I, and what does the world look like? It does this by treating camera frames as constraints and solving them in real time.\n\nIf you've ever wondered why your AR app drifts, or why markers help, the answer is in this article.",
+    "tags": ["cv", "slam", "deep-dive"]
+  },
+  {
+    "slug": "photogrammetry-phone",
+    "title": "Photogrammetry From Your Pocket",
+    "category": "Tutorial",
+    "author": "Vikram Reddy",
+    "author_role": "Events Coordinator",
+    "date": "2026-06-05",
+    "read_time": "11 min",
+    "issue": "№ 09",
+    "excerpt": "Your phone has a dozen cameras you've never used for 3D. Here's how to scan a real object — a coffee mug, a sculpture, your roommate — and turn it into an AR-ready model.",
+    "body": "Meshroom + a phone + patience. That's the recipe. We'll walk through capture, processing, cleanup, and import into Unity. By Friday you'll have a textured model spinning in your browser.",
+    "tags": ["3d", "photogrammetry", "tutorial"]
+  }
+]
