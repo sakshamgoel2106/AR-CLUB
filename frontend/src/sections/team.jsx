@@ -45,7 +45,7 @@ const teamMembers = [
   {
     image: "/dist/team/sam.jpeg",
     name: "Samarth",
-    role: "co-convener of AR CLUB"
+    role: "convener of AR CLUB"
   },
   {
     image: "/dist/team/chaitanya.jpg",
@@ -60,7 +60,7 @@ const teamMembers = [
   {
     image: "/dist/team/toshak.jpg",
     name: "Toshak",
-    role: "Convener of AR CLUB"
+    role: "co-Convener of AR CLUB"
   },
   {
     image: "/dist/team/Bhavresh.jpg",
