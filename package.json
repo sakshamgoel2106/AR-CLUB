@@ -4,11 +4,12 @@
   "description": "AR CLUB — Eco-tech single-page site, deploy-ready. Student-run AR studio for the college.",
   "main": "backend/server.js",
   "scripts": {
+    "postinstall": "npm run frontend:install",
     "start": "npm run build && node backend/server.js",
     "dev": "npm run build && node backend/server.js",
     "build": "npm --prefix frontend run build",
     "frontend:dev": "npm --prefix frontend run dev",
-    "frontend:install": "npm --prefix frontend install"
+    "frontend:install": "cd frontend && npm install --include=dev"
   },
   "engines": {
     "node": ">=18"
