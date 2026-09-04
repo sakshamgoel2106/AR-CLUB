@@ -15,7 +15,7 @@ const caps = [
 
 export function Capabilities() {
   return (
-    <section id="capabilities" className="px-6 py-16 md:py-20 relative">
+    <section id="capabilities" className="px-6 py-8 md:py-12 relative">
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="mb-12">
           <div className="font-mono text-xs uppercase tracking-[0.18em] text-white/60">— What We Offer</div>

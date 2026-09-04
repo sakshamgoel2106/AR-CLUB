@@ -3,10 +3,11 @@ import { TechStack } from "@/sections/tech-stack";
 import { Manifesto } from "@/sections/manifesto";
 import { Capabilities } from "@/sections/capabilities";
 import { Team } from "@/sections/team";
-import { Articles } from "@/sections/articles";
+import { Events } from "@/sections/events";
 import { Gallery } from "@/sections/gallery";
 import { Contact } from "@/sections/contact";
 import { Footer } from "@/sections/footer";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -33,7 +34,7 @@ export default function Home() {
         { label: "Manifesto", href: "#manifesto", isActive: true },
         { label: "Capabilities", href: "#capabilities" },
         { label: "Team", href: "#team" },
-        { label: "Articles", href: "#articles" },
+        { label: "Events", href: "#events" },
         { label: "Gallery", href: "#gallery" }]
         }
         partnersTitle="Powered by student engineers and designers" />
@@ -57,7 +58,9 @@ export default function Home() {
           <Manifesto />
           <Capabilities />
           <Team />
-          <Articles />
+          <ErrorBoundary>
+            <Events />
+          </ErrorBoundary>
           <Gallery />
           <Contact />
         </div>

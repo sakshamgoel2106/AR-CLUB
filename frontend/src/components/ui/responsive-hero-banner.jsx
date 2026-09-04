@@ -30,14 +30,14 @@ const ResponsiveHeroBanner = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <section className="w-full isolate min-h-screen overflow-hidden relative">
+    <section className="w-full isolate min-h-[85vh] md:min-h-screen overflow-hidden relative flex flex-col justify-center">
       {/* AR/Bio-tech themed background */}
       <div className="absolute inset-0 bg-[var(--bg-0)] bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(34,197,94,0.15),rgba(255,255,255,0))]"></div>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
 
       <div className="pointer-events-none absolute inset-0 ring-1 ring-white/5" />
 
-      <header className="z-10 xl:top-4 relative">
+      <header className="absolute top-0 w-full z-10 xl:top-4">
         <div className="mx-6">
           <div className="flex items-center justify-between pt-4">
             <a
@@ -108,6 +108,38 @@ const ResponsiveHeroBanner = ({
           </div>
         </div>
       </header>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="absolute inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col items-center justify-center p-6 md:hidden">
+          <button 
+            onClick={() => setMobileMenuOpen(false)}
+            className="absolute top-6 right-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/15"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-white"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+          
+          <nav className="flex flex-col items-center gap-8 w-full">
+            {navLinks.map((link, index) => (
+              <a
+                key={index}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`text-2xl font-serif tracking-wide ${link.isActive ? "text-white" : "text-white/70"}`}
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href={ctaButtonHref}
+              onClick={() => setMobileMenuOpen(false)}
+              className="mt-4 rounded-full bg-white px-8 py-3 text-lg font-medium text-black"
+            >
+              {ctaButtonText}
+            </a>
+          </nav>
+        </div>
+      )}
 
       <div className="z-10 relative">
         <div className="sm:pt-28 md:pt-32 lg:pt-40 max-w-7xl mx-auto pt-28 px-6 pb-16">
@@ -184,9 +216,9 @@ const ResponsiveHeroBanner = ({
             </div>
           </div>
 
-          <div className="mx-auto mt-20 max-w-5xl">
+          <div className="mx-auto mt-10 md:mt-20 max-w-5xl">
             <p className="animate-fade-slide-in-1 text-sm text-white/70 text-center">{partnersTitle}</p>
-            <div className="flex flex-wrap justify-center animate-fade-slide-in-2 text-white/50 mt-8 gap-8 md:gap-12 font-mono text-sm uppercase tracking-widest">
+            <div className="flex flex-wrap justify-center animate-fade-slide-in-2 text-white/50 mt-6 md:mt-8 gap-4 md:gap-12 font-mono text-xs md:text-sm uppercase tracking-widest">
               <span>Unity</span>
               <span>Unreal</span>
               <span>Apple Vision</span>

@@ -4,28 +4,41 @@ import { motion, useScroll, useTransform } from "framer-motion";
 const galleryImages = [
   {
     id: 1,
-    url: "/dist/gallery/image3.jpg",
-    title: "VR Experience",
-    tag: "Workshop"
+    url: "/dist/gallery/p1.jpg",
+    title: "Azure-Dev-Day",
+    tag: "Microsoft Event"
   },
   {
     id: 2,
+    url: "/dist/gallery/image3.jpg",
+    title: "FeelAR event",
+    tag: "Workshop"
+  },
+  {
+    id: 3,
     url: "/dist/gallery/image4.jpg",
     title: "Club Gathering",
     tag: "Community"
   },
   {
-    id: 3,
+    id: 4,
     url: "/dist/gallery/image1.jpg",
     title: "Team Session",
     tag: "Gathering"
   },
   {
-    id: 4,
-    url: "/dist/gallery/image2.jpg",
-    title: "Group Photo",
-    tag: "Event"
-  }];
+    id: 5,
+    url: "/dist/gallery/ideathon.jpg",
+    title: "Ideathon 2.0",
+    tag: "Competition"
+  },
+  {
+    id: 6,
+    url: "/dist/gallery/p2.jpg",
+    title: "LearnX event",
+    tag: "Orientation"
+  }
+];
 
 
 const Card = ({ img, i, progress, range, targetScale }) => {
@@ -42,7 +55,7 @@ const Card = ({ img, i, progress, range, targetScale }) => {
     <div ref={container} className="h-screen flex items-center justify-center sticky top-0">
       <motion.div
         style={{ scale, top: `calc(-5vh + ${i * 25}px)` }}
-        className="relative flex flex-col w-full max-w-5xl h-[70vh] md:h-[80vh] rounded-[2rem] origin-top overflow-hidden bg-[#111] ring-1 ring-white/10 shadow-2xl">
+        className="relative flex flex-col w-full max-w-5xl h-[60vh] md:h-[80vh] rounded-[2rem] origin-top overflow-hidden bg-[#111] ring-1 ring-white/10 shadow-2xl">
 
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <motion.img
@@ -54,15 +67,14 @@ const Card = ({ img, i, progress, range, targetScale }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
         </div>
 
-        <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full">
-          <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-md rounded-full font-mono text-[0.7rem] uppercase tracking-widest text-white/90 mb-4 border border-white/20">
+        <div className="absolute bottom-0 left-0 p-6 md:p-12 w-full">
+          <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-md rounded-full font-mono text-[0.6rem] md:text-[0.7rem] uppercase tracking-widest text-white/90 mb-3 md:mb-4 border border-white/20">
             {img.tag}
           </span>
-          <h3 className="text-3xl md:text-5xl font-bold font-display text-white tracking-normal">{img.title}</h3>
+          <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold font-display text-white tracking-normal leading-tight">{img.title}</h3>
         </div>
       </motion.div>
     </div>);
-
 };
 
 export function Gallery() {
@@ -73,7 +85,7 @@ export function Gallery() {
   });
 
   return (
-    <section id="gallery" className="w-full py-16 md:py-20 relative">
+    <section id="gallery" className="w-full py-8 md:py-12 relative">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="mb-8">
           <div className="font-mono text-xs uppercase tracking-[0.18em] text-white/60">— Gallery</div>

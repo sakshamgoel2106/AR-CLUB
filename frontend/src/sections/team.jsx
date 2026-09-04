@@ -7,8 +7,8 @@ const teamMembers = [
     role: "Co-ordinator of AR CLUB"
   },
   {
-    image: "/dist/team/bhavna.jpg",
-    name: "Bhavna",
+    image: "/dist/team/bhawna.jpg?v=4",
+    name: "Bhawna",
     role: "Convener of AR CLUB"
   },
   {
@@ -43,7 +43,7 @@ const teamMembers = [
     role: "Graphic designer of AR CLUB"
   },
   {
-    image: "/dist/team/samarth.jpg",
+    image: "/dist/team/sam.jpeg",
     name: "Samarth",
     role: "co-convener of AR CLUB"
   },
@@ -87,7 +87,7 @@ const teamMembers = [
 
 export function Team() {
   return (
-    <section id="team" className="relative w-full overflow-hidden py-16 md:py-20">
+    <section id="team" className="relative w-full overflow-hidden py-8 md:py-12">
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="mx-auto mb-16 flex max-w-5xl flex-col items-center px-6 text-center lg:px-0">
@@ -108,13 +108,13 @@ export function Team() {
           <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-32 bg-linear-to-r from-[var(--bg-0)] to-transparent" />
           <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-32 bg-linear-to-l from-[var(--bg-0)] to-transparent" />
 
-          <Marquee className="[--gap:1.5rem]" pauseOnHover>
+          <Marquee className="[--gap:1.5rem] [--duration:20s]" pauseOnHover>
             {teamMembers.map((member) =>
               <div
-                className="group flex w-64 shrink-0 flex-col"
+                className="group flex w-52 sm:w-64 shrink-0 flex-col"
                 key={member.name}>
 
-                <div className="relative h-96 w-full overflow-hidden rounded-2xl bg-white/[0.03]">
+                <div className="relative h-72 sm:h-96 w-full overflow-hidden rounded-2xl bg-white/[0.03]">
                   <img
                     alt={member.name}
                     className="absolute inset-0 h-full w-full object-cover grayscale transition-all duration-300 hover:grayscale-0"

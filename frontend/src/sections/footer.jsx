@@ -26,7 +26,7 @@ export function Footer() {
     { label: "Manifesto", href: "#manifesto" },
     { label: "Capabilities", href: "#capabilities" },
     { label: "Team", href: "#team", pulse: true },
-    { label: "Articles", href: "#articles" }];
+    { label: "Events", href: "#events" }];
 
 
   const contactInfo = [
@@ -47,16 +47,13 @@ export function Footer() {
     { icon: <Linkedin size={20} />, label: "LinkedIn", href: "https://www.linkedin.com/company/ar-club-jmit/posts/?feedView=all" }];
 
   return (
-    <footer className="bg-black/30 relative h-fit rounded-[2.5rem] overflow-hidden m-6 md:m-8 border border-white/5">
-      <div className="max-w-7xl mx-auto p-10 md:p-14 z-40 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 pb-12">
+    <footer className="bg-black/30 relative h-fit rounded-[2.5rem] overflow-hidden m-4 md:m-8 border border-white/5">
+      <div className="max-w-7xl mx-auto p-6 md:p-14 z-40 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8 lg:gap-16 pb-12">
           {/* Brand section */}
           <div className="flex flex-col space-y-4">
             <div className="flex items-center space-x-2">
-              <span className="text-[var(--leaf-500)] text-3xl font-serif">
-                AR
-              </span>
-              <span className="text-white text-3xl font-serif font-bold tracking-tight">CLUB</span>
+              <img src="/dist/logo.png?v=1" alt="AR CLUB Logo" className="h-14 w-auto drop-shadow-md bg-white/10 p-2 rounded-xl" />
             </div>
             <p className="text-white/60 text-sm leading-relaxed max-w-xs">
               A student-driven initiative connecting campus talent directly with industry leaders in AR, AI, and emerging tech. From grassroots hackathons to global communities and founder networks.

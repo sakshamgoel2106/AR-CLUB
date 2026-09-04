@@ -20,14 +20,14 @@ export function Marquee({
         "group flex overflow-hidden p-2 [--duration:40s] [--gap:1rem] [gap:var(--gap)]",
         className
       )}>
-      
+
       <div
         className={cn(
           "flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row",
           pauseOnHover && "group-hover:[animation-play-state:paused]",
           reverse && "[animation-direction:reverse]"
         )}>
-        
+
         {children}
       </div>
       <div
@@ -37,7 +37,7 @@ export function Marquee({
           pauseOnHover && "group-hover:[animation-play-state:paused]",
           reverse && "[animation-direction:reverse]"
         )}>
-        
+
         {children}
       </div>
     </div>);
