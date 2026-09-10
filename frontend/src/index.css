@@ -20,6 +20,7 @@
   --text-300: #a1a1aa;
   --text-400: #71717a;
   --radius: 0.5rem;
+  --leaf-500: #22c55e;
 }
 
 @keyframes fadeSlideIn {
@@ -82,8 +83,11 @@ body,
   background: var(--bg-0);
   color: var(--text-100);
   font-family: var(--font-sans);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-body {
-  overflow-x: hidden;
+#root {
+  overflow-x: clip;
+  width: 100%;
 }

@@ -98,7 +98,7 @@ export function Team() {
           <h1 className="relative mb-4 font-display font-semibold text-4xl text-white tracking-normal sm:text-5xl">
             Creative AR CLUB Members
           </h1>
-          <p className="max-w-2xl text-white/70">
+          <p className="max-w-2xl text-white/70 text-base md:text-lg">
             AR CLUB connects you with the most advanced tech solutions,
             empowering seamless communication and development.
           </p>

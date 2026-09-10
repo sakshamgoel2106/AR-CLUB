@@ -52,7 +52,7 @@ const Card = ({ img, i, progress, range, targetScale }) => {
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
-    <div ref={container} className="h-screen flex items-center justify-center sticky top-0">
+    <div ref={container} className="h-[100svh] flex items-center justify-center sticky top-0">
       <motion.div
         style={{ scale, top: `calc(-5vh + ${i * 25}px)` }}
         className="relative flex flex-col w-full max-w-5xl h-[60vh] md:h-[80vh] rounded-[2rem] origin-top overflow-hidden bg-[#111] ring-1 ring-white/10 shadow-2xl">
@@ -92,7 +92,7 @@ export function Gallery() {
           <h2 className="font-serif text-4xl md:text-6xl text-white tracking-tight mt-3">
             Glimpses of <em className="italic text-[var(--leaf-500)]">creation.</em>
           </h2>
-          <p className="text-white/70 mt-6 max-w-2xl text-lg">
+          <p className="text-white/70 mt-6 max-w-2xl text-base md:text-lg">
             Hackathons, workshops, and late-night building sessions. See what it looks like inside the AR CLUB.
           </p>
         </div>

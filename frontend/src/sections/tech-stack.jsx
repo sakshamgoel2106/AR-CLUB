@@ -79,8 +79,8 @@ export function TechStack() {
           )}
         </Marquee>
 
-        {/* Commits Grid Section */}
-        <div className="mt-24 md:mt-32 flex flex-col items-center w-full px-6">
+        {/* Commits Grid Section (Hidden on mobile for performance & clarity) */}
+        <div className="hidden md:flex mt-24 md:mt-32 flex-col items-center w-full px-6">
           <div className="font-mono text-xs uppercase tracking-[0.18em] text-white/60 mb-6">
             — Code & Contributions
           </div>

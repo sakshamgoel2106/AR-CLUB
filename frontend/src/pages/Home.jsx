@@ -47,11 +47,11 @@ export default function Home() {
           {/* Subtle Grid */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"></div>
           
-          {/* Glowing Orbs */}
-          <div className="absolute top-[5%] left-[-10%] h-[80vw] w-[80vw] max-h-[800px] max-w-[800px] rounded-full bg-[#3ca2fa]/[0.04] blur-[120px]"></div>
-          <div className="absolute top-[35%] right-[-10%] h-[80vw] w-[80vw] max-h-[800px] max-w-[800px] rounded-full bg-[var(--leaf-500)]/[0.04] blur-[120px]"></div>
-          <div className="absolute top-[65%] left-[10%] h-[80vw] w-[80vw] max-h-[800px] max-w-[800px] rounded-full bg-purple-500/[0.04] blur-[120px]"></div>
-          <div className="absolute bottom-[5%] right-[-10%] h-[80vw] w-[80vw] max-h-[800px] max-w-[800px] rounded-full bg-[#3ca2fa]/[0.04] blur-[120px]"></div>
+          {/* Glowing Orbs (Hidden on mobile for performance) */}
+          <div className="hidden md:block absolute top-[5%] left-[-10%] h-[80vw] w-[80vw] max-h-[800px] max-w-[800px] rounded-full bg-[#3ca2fa]/[0.04] blur-[120px]"></div>
+          <div className="hidden md:block absolute top-[35%] right-[-10%] h-[80vw] w-[80vw] max-h-[800px] max-w-[800px] rounded-full bg-[var(--leaf-500)]/[0.04] blur-[120px]"></div>
+          <div className="hidden md:block absolute top-[65%] left-[10%] h-[80vw] w-[80vw] max-h-[800px] max-w-[800px] rounded-full bg-purple-500/[0.04] blur-[120px]"></div>
+          <div className="hidden md:block absolute bottom-[5%] right-[-10%] h-[80vw] w-[80vw] max-h-[800px] max-w-[800px] rounded-full bg-[#3ca2fa]/[0.04] blur-[120px]"></div>
         </div>
 
         <div className="relative z-10">

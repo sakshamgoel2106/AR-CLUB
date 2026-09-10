@@ -44,7 +44,7 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-6">
           <form onSubmit={onSubmit} className="rounded-2xl bg-white/[0.03] ring-1 ring-white/10 backdrop-blur p-6 md:p-8 space-y-4">
             <label className="block">
               <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-white/60">Name</span>

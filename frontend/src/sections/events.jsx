@@ -82,7 +82,7 @@ export function Events() {
         <h2 className="text-center font-serif text-4xl md:text-5xl lg:text-6xl text-white tracking-tight">
           Explore Our <em className="italic text-white/80">Experiences.</em>
         </h2>
-        <p className="text-white/70 mt-4 max-w-2xl text-center px-4">
+        <p className="text-white/70 mt-4 max-w-2xl text-center px-4 text-base md:text-lg">
           Scroll down to discover past and upcoming events in our interactive gallery.
         </p>
       </div>

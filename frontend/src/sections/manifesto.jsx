@@ -19,7 +19,7 @@ export function Manifesto() {
           <h2 className="font-display text-3xl md:text-5xl text-white tracking-normal mt-3">
             We believe reality is a <em className="italic text-[var(--leaf-500)] font-serif">canvas.</em>
           </h2>
-          <p className="text-white/70 mt-4 max-w-2xl font-sans text-lg leading-relaxed">
+          <p className="text-white/70 mt-4 max-w-2xl font-sans text-base md:text-lg leading-relaxed">
             AR CLUB is a student-driven initiative connecting campus talent directly with industry leaders in AR, AI, and emerging tech. From grassroots hackathons to global communities and founder networks. We merge physical space with digital potential.
           </p>
         </div>

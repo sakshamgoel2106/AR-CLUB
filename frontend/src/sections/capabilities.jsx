@@ -22,7 +22,7 @@ export function Capabilities() {
           <h2 className="font-serif text-3xl md:text-5xl text-white tracking-tight mt-3">
             Ready to learn, build, <em className="italic text-white/80">connect,</em> and contribute?
           </h2>
-          <p className="text-white/70 mt-3 max-w-2xl">A platform that empowers you to grow.</p>
+          <p className="text-white/70 mt-3 max-w-2xl text-base md:text-lg">A platform that empowers you to grow.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {caps.map((c) =>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 
 
@@ -29,6 +30,17 @@ const ResponsiveHeroBanner = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const handleScroll = (e, href) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+      setMobileMenuOpen(false);
+    }
+  };
+
   return (
     <section className="w-full isolate min-h-[85vh] md:min-h-screen overflow-hidden relative flex flex-col justify-center">
       {/* AR/Bio-tech themed background */}
@@ -37,7 +49,7 @@ const ResponsiveHeroBanner = ({
 
       <div className="pointer-events-none absolute inset-0 ring-1 ring-white/5" />
 
-      <header className="absolute top-0 w-full z-10 xl:top-4">
+      <header className="absolute top-0 w-full z-50 xl:top-4">
         <div className="mx-6">
           <div className="flex items-center justify-between pt-4">
             <a
@@ -53,6 +65,7 @@ const ResponsiveHeroBanner = ({
                   <a
                     key={index}
                     href={link.href}
+                    onClick={(e) => handleScroll(e, link.href)}
                     className={`px-3 py-2 text-sm font-medium hover:text-white font-sans transition-colors ${link.isActive ? "text-white/90" : "text-white/80"}`}>
 
                     {link.label}
@@ -60,6 +73,7 @@ const ResponsiveHeroBanner = ({
                 )}
                 <a
                   href={ctaButtonHref}
+                  onClick={(e) => handleScroll(e, ctaButtonHref)}
                   className="ml-1 inline-flex items-center gap-2 rounded-full bg-white px-3.5 py-2 text-sm font-medium text-neutral-900 hover:bg-white/90 font-sans transition-colors">
 
                   {ctaButtonText}
@@ -110,36 +124,49 @@ const ResponsiveHeroBanner = ({
       </header>
 
       {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <div className="absolute inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col items-center justify-center p-6 md:hidden">
-          <button 
-            onClick={() => setMobileMenuOpen(false)}
-            className="absolute top-6 right-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/15"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-white"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-          </button>
-          
-          <nav className="flex flex-col items-center gap-8 w-full">
-            {navLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`text-2xl font-serif tracking-wide ${link.isActive ? "text-white" : "text-white/70"}`}
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href={ctaButtonHref}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="absolute inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col items-center justify-center p-6 md:hidden">
+            <button
               onClick={() => setMobileMenuOpen(false)}
-              className="mt-4 rounded-full bg-white px-8 py-3 text-lg font-medium text-black"
+              className="absolute top-6 right-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/15"
             >
-              {ctaButtonText}
-            </a>
-          </nav>
-        </div>
-      )}
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-white"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+
+            <nav className="flex flex-col items-center gap-8 w-full">
+              {navLinks.map((link, index) => (
+                <motion.a
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + index * 0.05 }}
+                  key={index}
+                  href={link.href}
+                  onClick={(e) => handleScroll(e, link.href)}
+                  className={`text-2xl font-serif tracking-wide ${link.isActive ? "text-white" : "text-white/70"}`}
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+              <motion.a
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + navLinks.length * 0.05 }}
+                href={ctaButtonHref}
+                onClick={(e) => handleScroll(e, ctaButtonHref)}
+                className="mt-4 rounded-full bg-white px-8 py-3 text-lg font-medium text-black"
+              >
+                {ctaButtonText}
+              </motion.a>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <div className="z-10 relative">
         <div className="sm:pt-28 md:pt-32 lg:pt-40 max-w-7xl mx-auto pt-28 px-6 pb-16">
@@ -171,6 +198,7 @@ const ResponsiveHeroBanner = ({
               {primaryButtonText &&
                 <a
                   href={primaryButtonHref}
+                  onClick={(e) => handleScroll(e, primaryButtonHref)}
                   className="inline-flex items-center gap-2 hover:bg-white/15 text-sm font-medium text-white bg-white/10 ring-white/15 ring-1 rounded-full py-3 px-5 font-sans transition-colors">
 
                   {primaryButtonText}
@@ -194,6 +222,7 @@ const ResponsiveHeroBanner = ({
               {secondaryButtonText &&
                 <a
                   href={secondaryButtonHref}
+                  onClick={(e) => handleScroll(e, secondaryButtonHref)}
                   className="inline-flex items-center gap-2 rounded-full bg-transparent px-5 py-3 text-sm font-medium text-white/90 hover:text-white font-sans transition-colors">
 
                   {secondaryButtonText}
