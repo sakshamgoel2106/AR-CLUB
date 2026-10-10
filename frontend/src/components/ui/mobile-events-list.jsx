@@ -10,7 +10,9 @@ export function MobileEventsList({ images }) {
           <div className="relative w-full h-[25vh] overflow-hidden">
             <img 
               src={src || '/placeholder.svg'} 
-              alt={alt || `Event image ${index + 1}`} 
+              alt={alt || title || `AR CLUB event ${index + 1}`} 
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
             {/* Subtle Gradient Overlay */}

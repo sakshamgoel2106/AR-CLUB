@@ -31,9 +31,11 @@ const ResponsiveHeroBanner = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleScroll = (e, href) => {
-    if (href.startsWith('#')) {
+    if (!href) return;
+    const targetId = href.startsWith('/#') ? href.slice(1) : href.startsWith('#') ? href : null;
+    if (targetId) {
       e.preventDefault();
-      const element = document.querySelector(href);
+      const element = document.querySelector(targetId);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
@@ -184,23 +186,87 @@ const ResponsiveHeroBanner = ({
               </div>
             }
 
-            <h1 className="sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-4xl text-white tracking-tight font-instrument-serif font-normal animate-fade-slide-in-2">
-              {title}
-              <br className="hidden sm:block" />
-              {titleLine2}
+            <h1 className={`sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-4xl text-white tracking-tight animate-fade-slide-in-2 flex flex-col items-center ${
+              titleLine2 === "We make reality more editable" ? "font-sans font-semibold" : "font-instrument-serif font-normal"
+            }`}>
+              <span>{title}</span>
+              {titleLine2 === "We make reality more editable" ? (
+                <>
+                  <span className="mt-2 flex items-center justify-center flex-wrap gap-x-3">
+                    <span>We</span>
+                    <motion.span
+                      initial="idle"
+                      animate={{
+                        boxShadow: [
+                          "0 0 10px rgba(34, 197, 94, 0.2)",
+                          "0 0 24px rgba(34, 197, 94, 0.45)",
+                          "0 0 10px rgba(34, 197, 94, 0.2)"
+                        ]
+                      }}
+                      transition={{
+                        boxShadow: { duration: 3.2, repeat: Infinity, ease: "easeInOut" }
+                      }}
+                      whileHover="hover"
+                      className="relative inline-flex items-center border border-[#22c55e] bg-[#22c55e]/[0.06] hover:bg-[#22c55e]/[0.1] px-3.5 sm:px-4 py-0.5 sm:py-1 text-white select-none cursor-default group transition-colors duration-300"
+                    >
+                      {/* 4 Corner control anchor handles - AR Viewfinder Focus Effect on hover */}
+                      <motion.span
+                        variants={{
+                          idle: { x: 0, y: 0 },
+                          hover: { x: -2.5, y: -2.5 }
+                        }}
+                        transition={{ type: "spring", stiffness: 450, damping: 25 }}
+                        className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-[6px] h-[6px] sm:w-[7px] sm:h-[7px] bg-white border border-[#22c55e] shadow-[0_0_8px_rgba(34,197,94,0.7)] pointer-events-none z-10"
+                      />
+                      <motion.span
+                        variants={{
+                          idle: { x: 0, y: 0 },
+                          hover: { x: 2.5, y: -2.5 }
+                        }}
+                        transition={{ type: "spring", stiffness: 450, damping: 25 }}
+                        className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 w-[6px] h-[6px] sm:w-[7px] sm:h-[7px] bg-white border border-[#22c55e] shadow-[0_0_8px_rgba(34,197,94,0.7)] pointer-events-none z-10"
+                      />
+                      <motion.span
+                        variants={{
+                          idle: { x: 0, y: 0 },
+                          hover: { x: -2.5, y: 2.5 }
+                        }}
+                        transition={{ type: "spring", stiffness: 450, damping: 25 }}
+                        className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 w-[6px] h-[6px] sm:w-[7px] sm:h-[7px] bg-white border border-[#22c55e] shadow-[0_0_8px_rgba(34,197,94,0.7)] pointer-events-none z-10"
+                      />
+                      <motion.span
+                        variants={{
+                          idle: { x: 0, y: 0 },
+                          hover: { x: 2.5, y: 2.5 }
+                        }}
+                        transition={{ type: "spring", stiffness: 450, damping: 25 }}
+                        className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-[6px] h-[6px] sm:w-[7px] sm:h-[7px] bg-white border border-[#22c55e] shadow-[0_0_8px_rgba(34,197,94,0.7)] pointer-events-none z-10"
+                      />
+
+                      <span className="relative z-10 tracking-tight">make reality more</span>
+                    </motion.span>
+                  </span>
+                  <span className="mt-1">editable</span>
+                </>
+              ) : (
+                <>
+                  <br className="hidden sm:block" />
+                  {titleLine2}
+                </>
+              )}
             </h1>
 
             <p className="sm:text-lg animate-fade-slide-in-3 text-base text-white/80 max-w-2xl mt-6 mx-auto">
               {description}
             </p>
 
-            <div className="flex flex-col sm:flex-row sm:gap-4 mt-10 gap-3 items-center justify-center animate-fade-slide-in-4">
-              {primaryButtonText &&
+            <div className="flex flex-col sm:flex-row sm:gap-4 mt-10 gap-3 items-center justify-center animate-fade-slide-in-4 w-full max-w-sm sm:max-w-none mx-auto">
+              {primaryButtonText && (
                 <a
                   href={primaryButtonHref}
                   onClick={(e) => handleScroll(e, primaryButtonHref)}
-                  className="inline-flex items-center gap-2 hover:bg-white/15 text-sm font-medium text-white bg-white/10 ring-white/15 ring-1 rounded-full py-3 px-5 font-sans transition-colors">
-
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold text-neutral-900 bg-white hover:bg-white/95 rounded-full py-3.5 px-8 font-sans transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:shadow-[0_0_40px_rgba(34,197,94,0.4)] hover:scale-105 active:scale-95 cursor-pointer"
+                >
                   {primaryButtonText}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -209,39 +275,25 @@ const ResponsiveHeroBanner = ({
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="2"
+                    strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="h-4 w-4">
-
+                    className="h-4 w-4"
+                  >
                     <path d="M5 12h14" />
                     <path d="m12 5 7 7-7 7" />
                   </svg>
                 </a>
-              }
-              {secondaryButtonText &&
+              )}
+              {secondaryButtonText && (
                 <a
                   href={secondaryButtonHref}
                   onClick={(e) => handleScroll(e, secondaryButtonHref)}
-                  className="inline-flex items-center gap-2 rounded-full bg-transparent px-5 py-3 text-sm font-medium text-white/90 hover:text-white font-sans transition-colors">
-
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 px-6 py-3.5 text-sm font-medium text-white/90 hover:text-white font-sans transition-all cursor-pointer"
+                >
                   {secondaryButtonText}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="w-4 h-4">
-
-                    <path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z" />
-                  </svg>
                 </a>
-              }
+              )}
             </div>
           </div>
 

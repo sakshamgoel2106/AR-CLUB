@@ -48,7 +48,9 @@ export function ZoomParallax({ images }) {
               <div className="pointer-events-auto group relative h-[20vh] w-[45vw] min-w-[120px] min-h-[120px] md:h-[25vh] md:w-[25vw] md:min-w-0 md:min-h-0 overflow-hidden rounded-2xl cursor-pointer ring-1 ring-white/10 hover:ring-[var(--leaf-500)]/50 transition-all duration-500 hover:scale-110 hover:z-50 hover:shadow-[0_0_40px_var(--leaf-500)]">
                 <img
                   src={src || '/placeholder.svg'}
-                  alt={alt || `Parallax image ${index + 1}`}
+                  alt={alt || title || `AR CLUB event showcase ${index + 1}`}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-125"
                 />
                 

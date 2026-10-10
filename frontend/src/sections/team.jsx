@@ -1,86 +1,121 @@
 import { Marquee } from "@/components/ui/marquee";
+import { getImageKitUrl, getFallbackHandler } from "@/utils/imagekit";
 
 const teamMembers = [
   {
-    image: "/dist/team/saksham.png",
-    name: "Saksham Goel",
-    role: "Co-ordinator of AR CLUB"
+    image: "team/raghav",
+    name: "Raghav",
+    role: "Head of Operations of AR CLUB"
   },
   {
-    image: "/dist/team/bhawna.jpg?v=4",
+    image: "team/alok yadav.jpeg",
+    name: "Alok Yadav",
+    role: "Technical Lead of AR CLUB"
+  },
+  {
+    image: "team/dhruv.jpg",
+    name: "Dhruv",
+    role: "Technical Lead of AR CLUB"
+  },
+  {
+    image: "team/bhawna.jpg",
     name: "Bhawna",
     role: "Convener of AR CLUB"
   },
   {
-    image: "/dist/team/ishani.jpg",
+    image: "team/toshak.jpg",
+    name: "Toshak",
+    role: "Convener of AR CLUB"
+  },
+  {
+    image: "team/chaitanya.jpg",
+    name: "Chaitanya",
+    role: "Co-Convener of AR CLUB"
+  },
+  {
+    image: "team/Nikhil.heic",
+    name: "Nikhil",
+    role: "Co-Convener of AR CLUB"
+  },
+  {
+    image: "team/sam.jpeg",
+    name: "Samarth",
+    role: "Co-Convener of AR CLUB"
+  },
+  {
+    image: "team/ishani.jpg",
     name: "Ishani",
-    role: "Senior Coordinator of AR CLUB"
+    role: "Co-Convener of AR CLUB"
   },
   {
-    image: "/dist/team/kashmi.jpg",
-    name: "Kashmi",
-    role: "Graphic Designer of AR CLUB"
-  },
-  {
-    image: "/dist/team/daksh.jpg",
-    name: "Daksh",
+    image: "team/saksham.png",
+    name: "Saksham Goel",
     role: "Coordinator of AR CLUB"
   },
   {
-    image: "/dist/team/ruhani.png",
+    image: "team/ruhani.png",
     name: "Ruhani",
-    role: "Content Writer of AR CLUB"
+    role: "Coordinator of AR CLUB"
   },
-
   {
-    image: "/dist/team/vandana.jpg",
+    image: "team/vandana.jpg",
     name: "Vandana",
     role: "Coordinator of AR CLUB"
   },
   {
-    image: "/dist/team/vansh goel.jpg",
-    name: "Vansh Goel",
-    role: "Graphic designer of AR CLUB"
-  },
-  {
-    image: "/dist/team/sam.jpeg",
-    name: "Samarth",
-    role: "convener of AR CLUB"
-  },
-  {
-    image: "/dist/team/chaitanya.jpg",
-    name: "Chaitanya",
-    role: "Scripter of AR CLUB"
-  },
-  {
-    image: "/dist/team/tushar.jpg",
+    image: "team/tushar.jpg",
     name: "Tushar",
-    role: "Multimedia Head of AR CLUB"
+    role: "Coordinator of AR CLUB"
   },
   {
-    image: "/dist/team/toshak.jpg",
-    name: "Toshak",
-    role: "co-Convener of AR CLUB"
+    image: "team/kashmi.jpg",
+    name: "Kashmi",
+    role: "Coordinator of AR CLUB"
   },
   {
-    image: "/dist/team/Bhavresh.jpg",
+    image: "team/vansh_goel.jpg",
+    name: "Vansh Goel",
+    role: "Coordinator of AR CLUB"
+  },
+  {
+    image: "team/daksh.jpg",
+    name: "Daksh",
+    role: "Coordinator of AR CLUB"
+  },
+  {
+    image: "team/Vedansh.PNG",
+    name: "Vedansh",
+    role: "Coordinator of AR CLUB"
+  },
+  {
+    image: "team/Bhavresh.jpg",
     name: "Bhavresh Saini",
-    role: "volunteer of AR CLUB"
+    role: "Volunteer of AR CLUB"
   },
   {
-    image: "/dist/team/anshul.jpg",
-    name: "Anshul Yadav",
-    role: "volunteer of AR CLUB"
-  },
-  {
-    image: "/dist/team/anubhuti.jpg",
+    image: "team/anubhuti.jpg",
     name: "Anubhuti",
-    role: "volunteer of AR CLUB"
+    role: "Volunteer of AR CLUB"
   },
   {
-    image: "/dist/team/shagun.jpg",
-    name: "Shagun",
-    role: "volunteer of AR CLUB"
+    image: "team/anshul.jpg",
+    name: "Anshul Yadav",
+    role: "Volunteer of AR CLUB"
+  },
+  {
+    image: "team/Mannat.png",
+    name: "Mannat",
+    role: "Volunteer of AR CLUB"
+  },
+  {
+    image: "team/Moksh Sharma.PNG",
+    name: "Moksh Sharma",
+    role: "Volunteer of AR CLUB"
+  },
+  {
+    image: "team/Ashutam Prajapati.jpg",
+    name: "Ashutam Prajapati",
+    role: "Volunteer of AR CLUB"
   }
 ];
 
@@ -116,15 +151,19 @@ export function Team() {
 
                 <div className="relative h-72 sm:h-96 w-full overflow-hidden rounded-2xl bg-white/[0.03]">
                   <img
-                    alt={member.name}
+                    alt={`${member.name} — ${member.role}`}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 h-full w-full object-cover grayscale transition-all duration-300 hover:grayscale-0"
-                    src={member.image} />
+                    src={getImageKitUrl(member.image, { width: 400, height: 600, quality: 85 })}
+                    onError={getFallbackHandler("")}
+                  />
 
                   <div className="absolute bottom-0 w-full rounded-b-2xl bg-black/60 backdrop-blur-sm p-4">
                     <h3 className="font-display font-semibold text-white">
                       {member.name}
                     </h3>
-                    <p className="font-tech text-white/70 text-xs uppercase tracking-wider mt-1">
+                    <p className="font-tech text-white/80 text-xs uppercase tracking-wider mt-1">
                       {member.role}
                     </p>
                   </div>
@@ -143,16 +182,19 @@ export function Team() {
           <div className="flex flex-col items-center gap-3">
             <div className="relative h-14 w-14 overflow-hidden rounded-full">
               <img
-                alt="Mayank Arora"
+                alt="Mayank Arora — AR CLUB Member"
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 h-full w-full object-cover"
-                src="/dist/team/mayank.png" />
-
+                src={getImageKitUrl("team/mayank.png", { width: 140, height: 140, quality: 90 })}
+                onError={getFallbackHandler("")}
+              />
             </div>
             <div className="text-center">
               <p className="font-display font-semibold text-white">
                 Mayank Arora
               </p>
-              <p className="font-sans text-white/60 text-sm">
+              <p className="font-sans text-white/80 text-sm">
                 Founder of AR CLUB
               </p>
             </div>

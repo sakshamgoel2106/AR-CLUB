@@ -21,32 +21,32 @@ export function TechStack() {
     {
       name: "Unity",
       hideName: true,
-      icon: <img src="/dist/logos/unity.png" alt="Unity" className="h-[60px] md:h-[120px] w-auto object-contain invert" />
+      icon: <img src="/dist/logos/unity.png" alt="Unity Game Engine Logo" loading="lazy" decoding="async" className="h-[60px] md:h-[120px] w-auto object-contain invert" />
     },
     {
       name: "SoarX",
       hideName: true,
-      icon: <img src="/dist/logos/soarx.png" alt="SoarX" className="h-[60px] md:h-[120px] w-auto object-contain invert" />
+      icon: <img src="/dist/logos/soarx.png" alt="SoarX Tech Community Logo" loading="lazy" decoding="async" className="h-[60px] md:h-[120px] w-auto object-contain invert" />
     },
     {
       name: "Blender",
       hideName: true,
-      icon: <img src="/dist/logos/blender.png" alt="Blender" className="h-[32px] md:h-[64px] w-auto object-contain invert" />
+      icon: <img src="/dist/logos/blender.png" alt="Blender 3D Creation Suite Logo" loading="lazy" decoding="async" className="h-[32px] md:h-[64px] w-auto object-contain invert" />
     },
     {
       name: "Hack2Skill",
       hideName: true,
-      icon: <img src="/dist/logos/hack2skill.png" alt="Hack2Skill" className="h-[60px] md:h-[120px] w-auto object-contain invert" />
+      icon: <img src="/dist/logos/hack2skill.png" alt="Hack2Skill Hackathon Platform Logo" loading="lazy" decoding="async" className="h-[60px] md:h-[120px] w-auto object-contain invert" />
     },
     {
       name: "Meta Quest",
       hideName: true,
-      icon: <img src="/dist/logos/meta-quest.png" alt="Meta Quest" className="h-[65px] md:h-[130px] w-auto object-contain invert" />
+      icon: <img src="/dist/logos/meta-quest.png" alt="Meta Quest Spatial Computing Logo" loading="lazy" decoding="async" className="h-[65px] md:h-[130px] w-auto object-contain invert" />
     },
     {
       name: "Unreal Engine",
       hideName: true,
-      icon: <img src="/dist/logos/unreal.png" alt="Unreal Engine" className="h-[60px] md:h-[120px] w-auto object-contain invert" />
+      icon: <img src="/dist/logos/unreal.png" alt="Unreal Engine Real-Time 3D Logo" loading="lazy" decoding="async" className="h-[60px] md:h-[120px] w-auto object-contain invert" />
     }
   ];
 

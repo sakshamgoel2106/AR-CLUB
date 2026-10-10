@@ -1,40 +1,41 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { getImageKitUrl, getFallbackHandler } from "@/utils/imagekit";
 
 const galleryImages = [
   {
     id: 1,
-    url: "/dist/gallery/p1.jpg",
+    url: "gallery/p1.jpg",
     title: "Azure-Dev-Day",
     tag: "Microsoft Event"
   },
   {
     id: 2,
-    url: "/dist/gallery/image3.jpg",
+    url: "gallery/image3.jpg",
     title: "FeelAR event",
     tag: "Workshop"
   },
   {
     id: 3,
-    url: "/dist/gallery/image4.jpg",
+    url: "gallery/image4.jpg",
     title: "Club Gathering",
     tag: "Community"
   },
   {
     id: 4,
-    url: "/dist/gallery/image1.jpg",
+    url: "gallery/image1.jpg",
     title: "Team Session",
     tag: "Gathering"
   },
   {
     id: 5,
-    url: "/dist/gallery/ideathon.jpg",
+    url: "gallery/ideathon.jpg",
     title: "Ideathon 2.0",
     tag: "Competition"
   },
   {
     id: 6,
-    url: "/dist/gallery/p2.jpg",
+    url: "gallery/p2.jpg",
     title: "LearnX event",
     tag: "Orientation"
   }
@@ -60,8 +61,11 @@ const Card = ({ img, i, progress, range, targetScale }) => {
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <motion.img
             style={{ scale: imageScale }}
-            src={img.url}
-            alt={img.title}
+            src={getImageKitUrl(img.url, { width: 1200, quality: 85 })}
+            onError={getFallbackHandler("")}
+            alt={`${img.title} — AR CLUB Event Gallery`}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover opacity-80" />
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />

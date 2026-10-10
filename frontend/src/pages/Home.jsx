@@ -13,10 +13,19 @@ import { useEffect } from "react";
 export default function Home() {
   useEffect(() => {
     if (typeof window !== "undefined") {
+      document.title = "AR CLUB — We make reality more editable | JMIT Radaur";
       if ("scrollRestoration" in history) {
         history.scrollRestoration = "manual";
       }
       window.scrollTo(0, 0);
+
+      const handleBeforeUnload = () => {
+        window.scrollTo(0, 0);
+      };
+      window.addEventListener("beforeunload", handleBeforeUnload);
+      return () => {
+        window.removeEventListener("beforeunload", handleBeforeUnload);
+      };
     }
   }, []);
 
@@ -26,18 +35,21 @@ export default function Home() {
         title="AR CLUB"
         titleLine2="We make reality more editable"
         description="A student-driven initiative connecting campus talent directly with industry leaders in AR, AI, and emerging tech. From grassroots hackathons to global communities and founder networks."
-        secondaryButtonText="Join AR Club"
-        secondaryButtonHref="#contact"
+        primaryButtonText="Join AR CLUB"
+        primaryButtonHref="#contact"
+        secondaryButtonText="Explore Events"
+        secondaryButtonHref="#events"
         ctaButtonText="Contact Us"
         ctaButtonHref="#contact"
         navLinks={[
-        { label: "Manifesto", href: "#manifesto", isActive: true },
-        { label: "Capabilities", href: "#capabilities" },
-        { label: "Team", href: "#team" },
-        { label: "Events", href: "#events" },
-        { label: "Gallery", href: "#gallery" }]
-        }
-        partnersTitle="Powered by student engineers and designers" />
+          { label: "Manifesto", href: "#manifesto", isActive: true },
+          { label: "Capabilities", href: "#capabilities" },
+          { label: "Team", href: "#team" },
+          { label: "Events", href: "#events" },
+          { label: "Gallery", href: "#gallery" }
+        ]}
+        partnersTitle="Powered by student engineers and designers"
+      />
       
       <main className="bg-[var(--bg-0)] text-[var(--text-100)] relative">
         <TechStack />

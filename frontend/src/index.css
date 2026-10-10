@@ -17,8 +17,8 @@
   --bg-300: #3f3f46;
   --text-100: #fafafa;
   --text-200: #e4e4e7;
-  --text-300: #a1a1aa;
-  --text-400: #71717a;
+  --text-300: #d4d4d8; /* High contrast zinc-300 for WCAG AA compliance */
+  --text-400: #a1a1aa; /* High contrast zinc-400 for WCAG AA compliance */
   --radius: 0.5rem;
   --leaf-500: #22c55e;
 }
@@ -83,11 +83,41 @@ body,
   background: var(--bg-0);
   color: var(--text-100);
   font-family: var(--font-sans);
-  user-select: none;
   -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #root {
   overflow-x: clip;
   width: 100%;
+}
+
+/* Strictly disallow selecting and copying text from the website */
+*,
+*::before,
+*::after {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+/* Allow text input and selection for form interaction only */
+input,
+textarea,
+select {
+  -webkit-user-select: auto !important;
+  -moz-user-select: auto !important;
+  -ms-user-select: auto !important;
+  user-select: auto !important;
+}
+
+/* Prevent image and asset dragging */
+img,
+svg,
+a {
+  -webkit-user-drag: none;
+  user-drag: none;
 }

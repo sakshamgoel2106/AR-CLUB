@@ -1,0 +1,7 @@
+# robots.txt for AR CLUB (arclub.jmit.ac.in)
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Host & Sitemap
+Sitemap: https://arclub.jmit.ac.in/sitemap.xml
