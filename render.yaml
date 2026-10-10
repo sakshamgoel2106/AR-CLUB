@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: ar-club
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: MONGODB_URI
+        sync: false
+      - key: IMAGEKIT_PUBLIC_KEY
+        value: public_dlmE11rYUzaI9EtggwWHjctGTVE=
+      - key: IMAGEKIT_URL_ENDPOINT
+        value: https://ik.imagekit.io/arclub
