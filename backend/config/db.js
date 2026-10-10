@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        const uri = process.env.MONGO_URI;
+        const uri = process.env.MONGO_URI || process.env.MONGODB_URI;
         if (!uri) {
-            console.warn('MONGO_URI is not defined; starting without MongoDB.');
+            console.warn('MONGO_URI / MONGODB_URI is not defined; starting without MongoDB.');
             return false;
         }
         await mongoose.connect(uri);
