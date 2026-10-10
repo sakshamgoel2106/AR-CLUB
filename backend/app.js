@@ -69,6 +69,12 @@ app.get('/sitemap.xml', (req, res) => {
     });
 });
 
+app.get('/favicon.ico', (req, res) => {
+    res.sendFile(path.join(PUBLIC_DIR, 'dist', 'favicon.ico'), err => {
+        if (err) res.sendFile(path.join(PUBLIC_DIR, 'favicon.ico'));
+    });
+});
+
 // Static frontend — serve built dist assets first with caching
 app.use('/dist', express.static(path.join(PUBLIC_DIR, 'dist'), {
     maxAge: isDev ? 0 : '7d',

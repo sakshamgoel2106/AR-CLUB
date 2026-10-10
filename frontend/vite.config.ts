@@ -10,7 +10,21 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // Express static mount at `PUBLIC_DIR = public/` serves the React bundle
 // automatically, without changing server config.
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    react(),
+    tailwindcss(),
+    {
+      name: 'root-favicon',
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          if (req.url === '/favicon.ico') {
+            req.url = '/dist/favicon.ico';
+          }
+          next();
+        });
+      },
+    },
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
